@@ -3,52 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Portfolio - Temo Kagho Jeef Joel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="contains-fluid">
-        <div class="row">
-            <div class="col">
-              <img src="alternance.jpg" width="200" height ="auto" alt="jeef">  
+    <header class="container-fluid bg-dark text-white py-4 text-center">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                <img src="alternance.jpg" width="150" height="auto" alt="Photo de Jeef" class="rounded-circle border">
             </div>
-             <div class="col">
-        <p>Je m'appelle Temo Kagho Jeef Joel, étudiant en première année du cycle ingénieur en informatique à l'école 3iL, et passionné par le domaine de la cybersécurité.
-
-Ce portfolio reflète mon engagement envers la protection des systèmes et des données, et il présente mes certifications, et projets réalisés. Mon ambition est de contribuer activement à renforcer la sécurité des infrastructures informatiques au sein d'une organisation dynamique.
-
-Je suis actuellement à la recherche d'une alternance en cybersécurité pour enrichir mes compétences tout en apportant une réelle valeur ajoutée à votre entreprise.
-
-N'hésitez pas à explorer mes projets, consulter mes certifications et me contacter si besoin necessaire. </p>
-      </div>
- </div>
+            <div class="col-md-9">
+                <h1>Temo Kagho Jeef Joel</h1>
+                <p>Étudiant en ingénierie informatique | Passionné de Cybersécurité</p>
+                <p>À la recherche d'une alternance en cybersécurité pour renforcer mes compétences et contribuer à la protection des infrastructures informatiques.</p>
+            </div>
+        </div>
     </header>
-    <main class="contains-fluid">
-         <div class="row">
-        <section class="col  border border-1 border-dark">
-            <h2 class="mx-auto text-success">Projets</h2>
-            <ul>
-                <li><a href="https://mylearn.oracle.com/ou/dashboard">Projet 1 : Securite des equipements du Cloud</a></li>
-                <!-- Ajoutez d'autres projets ici -->
-            </ul>
-        </section>
-        <section class="col border border-1 border-dark">
-            <h2 class="ms-auto text-success">Certifications</h2>
-            <ul class= "mx-auto text-success">
-                <li><a href="t10llQHAxTcHLlGiKLTHXXISXqCddccCna0cYAeNfHWZTMR5zh6QtY9FcTlj_082200_19102024.pdf" target="_blank">ANSSI</a></li>
-                <li><a href="Networking_Basics_Badge20241031-27-5lwx9n.pdf" target="_blank">Certification Reseaux Oracle</a></li>
-                 <li><a href="Introduction_to_Cybersecurity_Badge20241029-25-5swssx.pdf" target="_blank">Introduction_to_cybersecurity</a></li>
-                <li><a href="certificat.pdf" target="_blank">Connaissance SQL</a></li>
-                <li><a href="Python_Essentials_1_Badge20241221-27-kxlpe.pdf" target="_blank">Fondamentales python</a></li>
-                 <li><a href="myjobglasses_orientation_certificate.pdf" target="_blank">Pratique du reseau professionnel</a></li>
-            </ul>
-        </section>
-     </div>
+
+    <main class="container mt-4">
+        <div class="row">
+            <section class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="text-primary">Projets</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="https://mylearn.oracle.com/ou/dashboard" target="_blank">Sécurité des équipements du Cloud</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="col-md-6 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="text-success">Certifications</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a href="t10llQHAxTcHLlGiKLTHXXISXqCddccCna0cYAeNfHWZTMR5zh6QtY9FcTlj_082200_19102024.pdf" target="_blank">ANSSI</a></li>
+                            <li class="list-group-item"><a href="Networking_Basics_Badge20241031-27-5lwx9n.pdf" target="_blank">Certification Réseaux Oracle</a></li>
+                            <li class="list-group-item"><a href="Introduction_to_Cybersecurity_Badge20241029-25-5swssx.pdf" target="_blank">Introduction à la Cybersécurité</a></li>
+                            <li class="list-group-item"><a href="certificat.pdf" target="_blank">Connaissance SQL</a></li>
+                            <li class="list-group-item"><a href="Python_Essentials_1_Badge20241221-27-kxlpe.pdf" target="_blank">Fondamentaux Python</a></li>
+                            <li class="list-group-item"><a href="myjobglasses_orientation_certificate.pdf" target="_blank">Pratique du Réseau Professionnel</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
-    <footer class="contains-fluid border border-1 border-dark bg-dark">
-        <p id="tete">  <strong> 3IL INGENIEUR </strong></p>
+
+    <footer class="container-fluid bg-dark text-white text-center py-3">
+        <p><strong>3IL INGENIEUR</strong> | Contact : <a href="mailto:jeef@example.com" class="text-light">jeef@example.com</a></p>
     </footer>
 </body>
 </html>
