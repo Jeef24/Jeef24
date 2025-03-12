@@ -38,7 +38,8 @@ def index():
         vuln_found = is_vulnerable(url)
         return render_template_string(HTML_TEMPLATE, url=url, vuln_found=vuln_found)
     return '''
-    <form action="WebVulScanner/app.py" method="get">
+    <form action="http://127.0.0.1:5000/scan" method="get">
+
         <input type="text" name="url" placeholder="http://example.com" required>
         <button type="submit">Scanner</button>
     </form>
