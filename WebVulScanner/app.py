@@ -33,7 +33,7 @@ def is_vulnerable(url):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "POST":
+    if request.method == "GET":
         url = request.form.get("url")
         vuln_found = is_vulnerable(url)
         return render_template_string(HTML_TEMPLATE, url=url, vuln_found=vuln_found)
