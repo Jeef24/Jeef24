@@ -6,7 +6,7 @@
     <title>Portfolio - Temo Kagho Jeef Joel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script>
         function showScanner() {
             document.getElementById('choice-section').style.display = 'none';
@@ -18,6 +18,12 @@
             document.getElementById('scanner-section').style.display = 'none';
             document.getElementById('portfolio-section').style.display = 'block';
         }
+        function showIDS() {
+            document.getElementById('choice-section').style.display = 'none';
+            document.getElementById('scanner-section').style.display = 'none';
+            document.getElementById('portfolio-section').style.display = 'none';
+            document.getElementById('ids-section').style.display = 'block';
+        }
     </script>
 </head>
 <body>
@@ -26,6 +32,7 @@
         <p>Que souhaitez-vous faire ?</p>
         <button class="btn btn-primary m-2" onclick="showScanner()">Faire un test de vulnérabilité</button>
         <button class="btn btn-secondary m-2" onclick="showPortfolio()">Voir mon portfolio</button>
+        <button class="btn btn-warning m-2" onclick="showIDS()">Tester un fichier IDS</button>
     </div>
 
     <!-- Section du Scanner -->
@@ -40,12 +47,24 @@
         <a href="#" onclick="location.reload();">Retour</a>
     </div>
 
+    <!-- Section IDS -->
+    <div id="ids-section" style="display:none;" class="container mt-4 text-center">
+        <h2 class="text-warning">Intrusion Detection System</h2>
+        <p>Chargez un fichier de logs pour analyse :</p>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" class="form-control w-50 mx-auto">
+            <button type="submit" class="btn btn-warning mt-3">Analyser</button>
+        </form>
+        <br>
+        <a href="#" onclick="location.reload();">Retour</a>
+    </div>
+
     <!-- Section du Portfolio -->
     <div id="portfolio-section" style="display:none;" class="container mt-4">
         <header class="container-fluid bg-dark text-white py-4 text-center">
             <div class="row align-items-center">
                 <div class="col-md-3 text-center">
-                    <img src="alternance.jpg" width="150" height="auto" alt="Photo de Jeef" class="rounded-circle border">
+                    <img src="{{ url_for('static', filename='alternance.jpg') }}" width="150" height="auto" alt="Photo de Jeef" class="rounded-circle border">
                 </div>
                 <div class="col-md-9">
                     <h1>Temo Kagho Jeef Joel</h1>
@@ -72,12 +91,12 @@
                         <div class="card-body">
                             <h2 class="text-success">Certifications</h2>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="t10llQHAxTcHLlGiKLTHXXISXqCddccCna0cYAeNfHWZTMR5zh6QtY9FcTlj_082200_19102024.pdf" target="_blank">ANSSI</a></li>
-                                <li class="list-group-item"><a href="Networking_Basics_Badge20241031-27-5lwx9n.pdf" target="_blank">Certification Réseaux Oracle</a></li>
-                                <li class="list-group-item"><a href="Introduction_to_Cybersecurity_Badge20241029-25-5swssx.pdf" target="_blank">Introduction à la Cybersécurité</a></li>
-                                <li class="list-group-item"><a href="certificat.pdf" target="_blank">Connaissance SQL</a></li>
-                                <li class="list-group-item"><a href="Python_Essentials_1_Badge20241221-27-kxlpe.pdf" target="_blank">Fondamentaux Python</a></li>
-                                <li class="list-group-item"><a href="myjobglasses_orientation_certificate.pdf" target="_blank">Pratique du Réseau Professionnel</a></li>
+                                <li class="list-group-item"><a href="static/t10llQHAxTcHLlGiKLTHXXISXqCddccCna0cYAeNfHWZTMR5zh6QtY9FcTlj_082200_19102024.pdf" target="_blank">ANSSI</a></li>
+                                <li class="list-group-item"><a href="static/Networking_Basics_Badge20241031-27-5lwx9n.pdf" target="_blank">Certification Réseaux Oracle</a></li>
+                                <li class="list-group-item"><a href="static/Introduction_to_Cybersecurity_Badge20241029-25-5swssx.pdf" target="_blank">Introduction à la Cybersécurité</a></li>
+                                <li class="list-group-item"><a href="static/certificat.pdf" target="_blank">Connaissance SQL</a></li>
+                                <li class="list-group-item"><a href="static/Python_Essentials_1_Badge20241221-27-kxlpe.pdf" target="_blank">Fondamentaux Python</a></li>
+                                <li class="list-group-item"><a href="static/myjobglasses_orientation_certificate.pdf" target="_blank">Pratique du Réseau Professionnel</a></li>
                             </ul>
                         </div>
                     </div>
