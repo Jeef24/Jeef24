@@ -3,6 +3,7 @@ import requests
 
 app = Flask(__name__)
 
+# Le template HTML avec le formulaire et les résultats
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,20 +11,65 @@ HTML_TEMPLATE = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résultats du scan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .scan-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .scan-button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .vulnerable {
+            background-color: #ffcccb;
+            color: red;
+        }
+        .safe {
+            background-color: #c8e6c9;
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <h1>Résultats du scan</h1>
-    <p>Scan du site : {{ url }}</p>
-    {% if vuln_found %}
-        <p style="color:red;">⚠️ Vulnérabilité trouvée !</p>
-    {% else %}
-        <p style="color:green;">✅ Aucun problème détecté.</p>
+    <form action="/" method="get">
+        <input type="text" name="url" placeholder="http://example.com" required>
+        <button class="scan-button" type="submit">Scanner</button>
+    </form>
+
+    {% if url %}
+        <p>Scan du site : {{ url }}</p>
+        {% if vuln_found %}
+            <div class="result vulnerable">
+                <p>⚠️ Vulnérabilité trouvée !</p>
+            </div>
+        {% else %}
+            <div class="result safe">
+                <p>✅ Aucun problème détecté.</p>
+            </div>
+        {% endif %}
     {% endif %}
-    <a href="/">Retour</a>
 </body>
 </html>
 """
 
+# Fonction de vérification de vulnérabilité
 def is_vulnerable(url):
     try:
         response = requests.get(url + "'")
@@ -33,17 +79,13 @@ def is_vulnerable(url):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "GET":
-        url = request.form.get("url")
-        vuln_found = is_vulnerable(url)
-        return render_template_string(HTML_TEMPLATE, url=url, vuln_found=vuln_found)
-    return '''
-    <form action="http://127.0.0.1:5000/scan" method="get">
+    url = request.args.get("url")
+    vuln_found = None
 
-        <input type="text" name="url" placeholder="http://example.com" required>
-        <button type="submit">Scanner</button>
-    </form>
-    '''
+    if url:
+        vuln_found = is_vulnerable(url)
+    
+    return render_template_string(HTML_TEMPLATE, url=url, vuln_found=vuln_found)
 
 if __name__ == "__main__":
     app.run(debug=True)
