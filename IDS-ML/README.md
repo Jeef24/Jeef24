@@ -1,1 +1,2 @@
 Ce projet met en vue la capacité de combiner les machines fonctionnant sur des jeux des données automatiques et leur securité en alertant les responsables si ue intruisons se produit.
+J e serai très heureux de vous expliquer comment marche ce projet. Le fichier a executer se trouver dans Jeef24 avec un nom de app.py a lancé en console ou git (python app.py) et en ouvrant le navigateur et en tapant http://127.0.0.1.5000
